@@ -20,7 +20,8 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _contacts = [_internalContacts copy];
+        NSLog(@"--CONTACTS CONTROLLER INIT--");
+        _internalContacts = [[NSMutableArray alloc] init];
         
         [self.internalContacts addObject:[CARContact contactWithName:@"Chad Rutherford" email:@"chad_rutherford@outlook.com" phone:@"7404187664"]];
         [self.internalContacts addObject:[CARContact contactWithName:@"Tyler Christian" email:@"tyler_christian@outlook.com" phone:@"4127978009"]];
@@ -30,26 +31,29 @@
     return self;
 }
 
-- (void) addContact:(CARContact *)contact {
-    [self.internalContacts addObject:contact];
-    [contact release];
+- (NSArray *)contacts {
+    return [[_internalContacts copy] autorelease];
 }
 
-- (void)updateContact:(CARContact *)contact {
-    NSUInteger index = [self.internalContacts indexOfObject:contact];
-    self.internalContacts[index] = contact;
-    [contact release];
+- (void)addContact:(CARContact *)contact {
+    [self.internalContacts addObject:contact];
+}
+
+- (void)updateContact:(CARContact *)contact
+             withName:(NSString *)name
+                email:(NSString *)email
+                phone:(NSString *)phone {
+    contact.name = name;
+    contact.email = email;
+    contact.phone = phone;
 }
 
 - (void)removeContact:(CARContact *)contact {
-    NSUInteger index = [self.internalContacts indexOfObject:contact];
-    [self.internalContacts removeObjectAtIndex:index];
-    [contact release];
+    [self.internalContacts removeObject:contact];
 }
 
 - (void)dealloc {
-    [_contacts release];
-    _contacts = nil;
+    NSLog(@"--CONTACTS CONTROLLER DEALLOC--");
     [_internalContacts release];
     _internalContacts = nil;
     [super dealloc];

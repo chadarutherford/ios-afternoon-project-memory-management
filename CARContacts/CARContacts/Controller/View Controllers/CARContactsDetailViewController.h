@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import "CARContactsController.h"
+#import "CARContact.h"
 
 @interface CARContactsDetailViewController : UIViewController
 
-@end
+@property (nonatomic, retain) CARContact *contact;
+@property (nonatomic, retain) CARContactsController *contactsController;
 
-NS_ASSUME_NONNULL_END
+@end

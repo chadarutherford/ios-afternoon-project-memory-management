@@ -10,9 +10,9 @@
 
 @interface CARContact : NSObject
 
-@property (nonatomic, readonly, copy) NSString *name;
-@property (nonatomic, readonly, copy) NSString *email;
-@property (nonatomic, readonly, copy) NSString *phone;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *phone;
 
 + (instancetype) contactWithName:(NSString *)name
                            email:(NSString *)email

@@ -47,7 +47,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="i0P-zF-uut">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ga3-jT-Zff"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ga3-jT-Zff">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="PY5-id-PeM" id="SOg-xs-Fwz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="e6a-Ca-d3W" kind="show" identifier="ShowContactDetailSegue" id="TyQ-Le-b4c"/>
@@ -75,7 +79,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhZ-fh-khZ">
-                                <rect key="frame" x="20" y="276" width="374" height="34"/>
+                                <rect key="frame" x="20" y="276" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8cb-Sc-SiT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
@@ -92,13 +99,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-5N-tDg">
-                                <rect key="frame" x="20" y="340" width="120" height="21"/>
+                                <rect key="frame" x="20" y="346" width="120" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8JO-FZ-NU6">
-                                <rect key="frame" x="20" y="369" width="374" height="34"/>
+                                <rect key="frame" x="20" y="375" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KVC-um-Hdo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
@@ -127,8 +137,17 @@
                         <viewLayoutGuide key="safeArea" id="eLg-3g-NUe"/>
                     </view>
                     <navigationItem key="navigationItem" id="t68-ml-a0j">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ejq-Wr-JEc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ejq-Wr-JEc">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="e6a-Ca-d3W" id="kqU-Wr-Q8e"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="DhZ-fh-khZ" id="VCk-EP-tet"/>
+                        <outlet property="nameTextField" destination="tFg-Xq-AZV" id="pkH-xT-U41"/>
+                        <outlet property="phoneTextField" destination="8JO-FZ-NU6" id="xHH-6g-1fT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuR-QR-AuM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,9 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CARContact.h"
 
 @interface CARContactsController : NSObject
 
 @property (nonatomic, readonly) NSArray *contacts;
+
+- (void)addContact:(CARContact *)contact;
+
+- (void)updateContact:(CARContact *)contact
+             withName:(NSString *)name
+                email:(NSString *)email
+                phone:(NSString *)phone;
+
+- (void)removeContact:(CARContact *)contact;
 
 @end
